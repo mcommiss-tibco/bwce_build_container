@@ -10,7 +10,7 @@
  Create a container images that can execute BWCE maven goals for pipeline purposes.
 
 ## Setup
-Two container images will be created. The image will contain the basic software to be able to execute BWCE maven plugin goals.
+A BWCE build container image will be created. The image will contain the basic software to be able to execute BWCE maven plugin goals.
 Once installed it will decrease execution times while running the maven goals during pipeline execution. This is acomplished by downloading all the required  maven dependencies in the local maven repository in the container image during build time.
 
  ## Creation of the image
