@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DemoTime Module
+Bundle-SymbolicName: DemoTime.module
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: TIBCO Software Inc.
+TIBCO-BW-ApplicationModule: META-INF/module.bwm
+TIBCO-BW-ConfigProfile: META-INF/default.substvar
+TIBCO-BW-Edition: bwcf
+TIBCO-BW-JobSharedVariables: META-INF/module.jsv
+Require-Capability: com.tibco.bw.model; filter:="(name=bwext)",com.tibco
+ .bw.palette; filter:="(name=bw.generalactivities)",com.tibco.bw.sharedr
+ esource.model; filter:="(name=bw.httpconnector)",com.tibco.bw.binding.m
+ odel; filter:="(name=bw.rest)"
+TIBCO-BW-ModuleSharedVariables: META-INF/module.msv
+TIBCO-BW-Version: 2.10.0 HF3 V67 2025-05-21
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+

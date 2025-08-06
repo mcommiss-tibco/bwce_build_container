@@ -1,0 +1,7 @@
+<Mapper>
+<Mapper-input>
+<tns:MapperInput xmlns:tns="http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1750168745372" xmlns:tns1="http://www.example.com/namespaces/tns/1750162066492">
+  <fullName>first last</fullName>
+</tns:MapperInput>
+</Mapper-input>
+</Mapper>

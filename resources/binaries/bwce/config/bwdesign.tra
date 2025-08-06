@@ -1,0 +1,52 @@
+# Customized tra file for docker environment
+# Copyright?? 2012 - 2013 TIBCO Software Inc.
+# All Rights Reserved.
+#
+# This software is confidential and proprietary information of TIBCO Software Inc.
+#
+#
+
+# This wrapper configuration file invokes the bwdesign commandline.
+
+# ==============================================================================
+# Common Variables:  Modify these as needed.
+# ==============================================================================
+
+tibco.env.PSP=:
+tibco.env.TIBCO_HOME=/opt/tibco/bwce
+tibco.env.TIBCO_JAVA_HOME=/opt/tibco/bwce/tibcojre64/17
+tibco.env.TIBCO_JVM_LIB_SERVER=/opt/tibco/bwce/tibcojre64/17/lib/server/libjvm.so
+tibco.env.TIBCO_JVM_LIB_DIR=/opt/tibco/bwce/tibcojre64/17/lib
+
+tibco.env.LD_LIBRARY_PATH=%TIBCO_JVM_LIB_DIR%%PSP%%TIBCO_JVM_LIB_DIR%/..
+tibco.env.PATH=%TIBCO_JAVA_HOME%/bin%PSP%%PATH%
+
+tibco.env.STUDIO_HOME=/opt/tibco/bwce/studio/4.0/eclipse
+tibco.env.ECLIPSE_BUNDLEPOOL_HOME=/opt/tibco/bwce/eclipse-platform/bundlepool/1.0/org.eclipse.equinox.p2.touchpoint.eclipse
+tibco.env.ECLIPSE_WINDOW_SYSTEM=gtk
+
+
+# ==============================================================================
+# Optional Variables:  Modify and uncomment these as needed.
+# ==============================================================================
+
+#java.extended.properties=-Xmx1024m -Xms512m -XX\:+HeapDumpOnOutOfMemoryError --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+
+java.extended.properties=-XstartOnFirstThread -Xmx1024m -Xms512m -XX\:+HeapDumpOnOutOfMemoryError --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-exports=java.base/sun.security.ssl=ALL-UNNAMED --add-exports=java.base/com.sun.crypto.provider=ALL-UNNAMED --add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED
+
+#java.extended.properties=-XstartOnFirstThread -Xmx16g -Xm16g -XX\:+HeapDumpOnOutOfMemoryError --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.management/sun.management=ALL-UNNAMED --add-exports=java.base/sun.security.ssl=ALL-UNNAMED --add-exports=java.base/com.sun.crypto.provider=ALL-UNNAMED --add-exports=java.management/com.sun.jmx.mbeanserver=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.naming/com.sun.jndi.ldap=ALL-UNNAMED -Djava.awt.headless=true -Ddebug -Dsun.net.client.defaultConnectTimeout=1000 -Dsun.net.client.defaultReadTimeout=1000 -Dbw.process.deserialization.in.parallel=true
+
+# Increase the default maximum heap size.
+#java.heap.size.initial=128M
+#java.heap.size.max=256M
+
+# ==============================================================================
+# Do NOT modify beyond this line. ***
+# ==============================================================================
+
+java.library=%TIBCO_JVM_LIB_SERVER%
+java.start.class=org.eclipse.core.launcher.Main
+java.start.method=main
+application.args=-install "%STUDIO_HOME%" -application com.tibco.bw.core.design.project.BwDesignApplication -ws %ECLIPSE_WINDOW_SYSTEM%
+
+tibco.class.path.extended=%ECLIPSE_BUNDLEPOOL_HOME%/plugins/org.eclipse.equinox.launcher_1.6.100.v20201223-0822.jar

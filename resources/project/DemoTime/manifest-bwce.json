@@ -1,0 +1,84 @@
+{
+	"name" : "DemoTime",
+	"version" : "1.0.0",
+	"type" : "bwce",
+	"defaultProfile" : "default.substvar",
+	"appProperties" : [
+		{
+			"profile" : "default.substvar",
+			"properties" : [
+			]
+		}
+	],
+	"endpoints" : [
+		{
+			"name" : "demo",
+			"protocol" : "http",
+			"port" : "8080",
+			"sharedResourceName" : "demotime.module.demo",
+			"spec" : {
+				"name" : "DemoTime",
+				"version" : "v1"
+			},
+			"swagger" : {
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0",
+    "title" : "demo",
+    "description" : "demo service"
+  },
+  "host" : "localhost:8080",
+  "basePath" : "/",
+  "schemes" : [ "http" ],
+  "paths" : {
+    "/demo" : {
+      "post" : {
+        "summary" : "postDemo",
+        "description" : "postDemo",
+        "operationId" : "post-demo",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "text/plain" ],
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "description" : "",
+          "schema" : {
+            "$ref" : "#/definitions/Person"
+          },
+          "required" : true
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "a string to be returned",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Person" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}
+		},
+		{
+			"type" : "private",
+			"pingable" : true,
+			"protocol" : "http",
+			"port" : "8090"
+		}
+	]
+}
