@@ -1,0 +1,6 @@
+---
+appName: "DemoTime.module"
+testsuite:
+- name: "TestSuite-demo1.bwts"
+testCases:
+- "MappingTest.bwt"

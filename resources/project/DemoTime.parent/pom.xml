@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tibco.bw</groupId>
+	<artifactId>DemoTime.parent</artifactId>
+	<version>1.0.24</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>../DemoTime.module</module>
+		<module>../DemoTime</module>
+	</modules>
+	<profiles>
+		<profile>
+			<id>windows</id>
+			<activation>
+				<os>
+					<family>windows</family>
+				</os>
+			</activation>
+			<properties>
+				<tibco.Home>C:\tibco\bw\2.10.0_hf3</tibco.Home>
+			</properties>
+		</profile>
+		<profile>
+			<id>unix</id>
+			<activation>
+				<os>
+					<family>unix</family>
+				</os>
+			</activation>
+			<properties>
+				<tibco.Home>/opt/tibco/bwce</tibco.Home>
+			</properties>
+		</profile>
+	</profiles>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.20.0</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

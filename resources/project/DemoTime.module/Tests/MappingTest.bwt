@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<emulation:EmulationData xmlns:emulation="http:///emulation.ecore" isBW="true" location="/DemoTime.module/Tests/MappingTest.bwt" isSelected="true">
+  <ProcessNode Id="demotime.module.demo" Name="demotime.module.demo" ModelType="BW" moduleName="DemoTime.module" componentProcessName="Componentdemo"/>
+  <ProcessNode Id="demotime.module.subLog" Name="demotime.module.subLog" ModelType="BW" moduleName="DemoTime.module">
+    <Assertion Id="719a4445-8990-4513-a2a0-9833fc7c2533" Name="Mapper" hasDecoration="true" assertionType="Activity" isForInput="true">
+      <Lang>urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0</Lang>
+      <Expression>&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1750168745372&quot; version=&quot;2.0&quot; >&lt;xsl:param name=&quot;Mapper-input&quot;  /> &lt;xsl:template name=&quot;Mapper&quot; match=&quot;/&quot; >&lt;xsl:variable name=&quot;activityTestInput&quot; as=&quot;item()*&quot;>&lt;Activity-Assertion> &lt;xsl:value-of select=&quot;$Mapper-input/fullName&quot;  /> &lt;/Activity-Assertion> &lt;/xsl:variable> &lt;xsl:variable name=&quot;AssertType&quot; as=&quot;item()*&quot;>&lt;Activity-Assertion> &lt;tns:MapperInput >&lt;fullName >&lt;xsl:value-of select=&quot;&amp;quot;first last&amp;quot;&quot;  /> &lt;/fullName>&lt;/tns:MapperInput>&lt;/Activity-Assertion> &lt;/xsl:variable> &lt;xsl:choose>&lt;xsl:when test=&quot;$activityTestInput=$AssertType&quot;>&lt;result status=&quot;passed&quot; message=&quot;Assertion passed.&quot;/>&lt;/xsl:when>&lt;xsl:otherwise>&lt;result status=&quot;failed&quot; message=&quot;Assertion failed.&quot;/>&lt;/xsl:otherwise>&lt;/xsl:choose> &lt;/xsl:template>&lt;/xsl:stylesheet></Expression>
+      <OriginalExpression>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>
+&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/namespaces/tnt/plugins/generalactivities/mapper/1750168745372&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;Mapper-input&quot;/>&lt;xsl:template name=&quot;Mapper&quot; match=&quot;/&quot;>&lt;Activity-Assertion>&lt;activityTestInput>&lt;xsl:value-of select=&quot;$Mapper-input/fullName&quot;/>&lt;/activityTestInput>&lt;AssertType>&lt;tns:MapperInput>&lt;fullName>&lt;xsl:value-of select=&quot;&amp;quot;first last&amp;quot;&quot;/>&lt;/fullName>&lt;/tns:MapperInput>&lt;/AssertType>&lt;/Activity-Assertion>&lt;/xsl:template>&lt;/xsl:stylesheet></OriginalExpression>
+    </Assertion>
+    <Operation Name="callProcess" serviceName="demotime.module.subLog">
+      <Inputs Id="4f5496f9-ac75-4e38-a88e-fd3fb970123aDemoTime.module_demotime.module.subLog_callProcess_Start" Name="Start" isDefault="true" type="CALLPROCESS" isInputFile="true" inputFile="Tests/mocks/subLog-input.xml">
+        <informations Name="input" nameSpace="http://www.example.com/namespaces/tns/1750162066492">
+          <nameSpaces prefix="tns" nameSapce="http://www.example.com/namespaces/tns/1750162066492"/>
+          <Parameter Name="tns:Person">
+            <parameters Name="tns:firstName" type="string" nameSpace="http://www.example.com/namespaces/tns/1750162066492"/>
+            <parameters Name="tns:lastName" type="string" nameSpace="http://www.example.com/namespaces/tns/1750162066492"/>
+          </Parameter>
+        </informations>
+      </Inputs>
+      <resolvedInput inputValue="&lt;tns:Person xmlns:tns='http://www.example.com/namespaces/tns/1750162066492' >&lt;tns:firstName>&lt;/tns:firstName>&lt;tns:lastName>&lt;/tns:lastName>&lt;/tns:Person>"/>
+    </Operation>
+  </ProcessNode>
+</emulation:EmulationData>

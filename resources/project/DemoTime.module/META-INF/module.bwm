@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_pYDFAEtyEfC11apoh1Ka7g" targetNamespace="http://tns.tibco.com/bw/composite/DemoTime.module" name="DemoTime.module" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_4IuEAEtyEfC11apoh1Ka7g" name="demo" promote="Componentdemo/demo">
+    <sca:interface.wsdl xmi:id="_4IxuYEtyEfC11apoh1Ka7g" interface="http://xmlns.example.com/20250617140201PLT#wsdl.interface(demo)" scaext:wsdlLocation="../Processes/demotime/module/demo.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_4IzjkEtyEfC11apoh1Ka7g" name="RestService" path="/demo" docBasePath="http://localhost:7777/DemoTime.module" docResourcePath="demo" basePath="/" connector="demotime.module.demo" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/demotime.module.demo-demo.json">
+      <operation xmi:id="_4I0xsEtyEfC11apoh1Ka7g" operationName="post" nickname="post-demo" httpMethod="POST" notes="postDemo" responseStyle="element" requestStyle="element" outputPartName="item">
+        <clientFormat>text</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_4Jb1s0tyEfC11apoh1Ka7g"/>
+      <advancedConfig xmi:id="_4IzjkUtyEfC11apoh1Ka7g" blockingQueueSize="8192"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_4I0xsUtyEfC11apoh1Ka7g" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_plQakEtyEfC11apoh1Ka7g" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_plTd4EtyEfC11apoh1Ka7g" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_plUsAEtyEfC11apoh1Ka7g" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_plV6IEtyEfC11apoh1Ka7g" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_plXvUEtyEfC11apoh1Ka7g" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_plYWYEtyEfC11apoh1Ka7g" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_plaLkEtyEfC11apoh1Ka7g" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_4IpLgEtyEfC11apoh1Ka7g" name="Componentdemo" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_4IpLgUtyEfC11apoh1Ka7g" processName="demotime.module.demo"/>
+    <sca:service xmi:id="_4IrnwEtyEfC11apoh1Ka7g" name="demo">
+      <sca:interface.wsdl xmi:id="_4IsO0EtyEfC11apoh1Ka7g" interface="http://xmlns.example.com/20250617140201PLT#wsdl.interface(demo)" scaext:wsdlLocation="../Processes/demotime/module/demo.bwp"/>
+    </sca:service>
+  </sca:component>
+</sca:composite>
